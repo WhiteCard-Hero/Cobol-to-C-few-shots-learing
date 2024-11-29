@@ -1,0 +1,8 @@
+git+https://github.com/huggingface/transformers.git
+accelerate
+datasets
+bitsandbytes
+peft
+trl
+wandb
+huggingface_hub
