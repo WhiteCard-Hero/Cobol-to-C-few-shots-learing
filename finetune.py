@@ -21,8 +21,8 @@ from trl import SFTTrainer
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_id", type=str, default="bigcode/starcoder2-3b")
-    parser.add_argument("--dataset_name", type=str, default="the-stack-smol")
-    parser.add_argument("--subset", type=str, default="data/rust")
+    parser.add_argument("--dataset_name", type=str, default="bigcode/the-stack-smol")
+    parser.add_argument("--subset", type=str, default="data/java")
     parser.add_argument("--split", type=str, default="train")
     parser.add_argument("--dataset_text_field", type=str, default="content")
 
@@ -118,7 +118,6 @@ def main(args):
             optim="paged_adamw_8bit",
             seed=args.seed,
             run_name=f"train-{args.model_id.split('/')[-1]}",
-            report_to="wandb",
         ),
         peft_config=lora_config,
         dataset_text_field=args.dataset_text_field,
